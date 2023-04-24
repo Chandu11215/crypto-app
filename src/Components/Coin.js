@@ -1,17 +1,11 @@
 import React from "react";
 import "../Components/Coin.css";
-import { useHistory, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
-const Coin = ({
-  icon,
-  coinName,
-  coinSymbol,
-  price,
-  marketCap,
-  priceChange,
-  id,
-}) => {
-  let history = useHistory();
+const Coin = (props) => {
+
+  const  {   icon, coinName, coinSymbol, price, marketCap, priceChange, id } = props;
+
   const navigate = useNavigate();
   return (
     <div className="coinContainer">
