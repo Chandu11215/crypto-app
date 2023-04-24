@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./Routes/Home";
 import CoinPage from "./Routes/CoinPage";
@@ -8,10 +8,12 @@ import CoinPage from "./Routes/CoinPage";
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Route path="/" exact render={(props) => <Home />} />
-        <Route path="/CoinPage/:id" exact render={(props) => <CoinPage />} />
-      </Router>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" exact element={<Home />}/>
+          <Route path="/CoinPage/:id" exact element={<CoinPage />}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
