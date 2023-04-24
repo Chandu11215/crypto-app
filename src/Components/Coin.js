@@ -1,6 +1,6 @@
 import React from "react";
 import "../Components/Coin.css";
-import { useHistory } from "react-router-dom";
+import { useHistory, useNavigate } from "react-router-dom";
 
 const Coin = ({
   icon,
@@ -12,12 +12,13 @@ const Coin = ({
   id,
 }) => {
   let history = useHistory();
+  const navigate = useNavigate();
   return (
     <div className="coinContainer">
       <div className="coinRow">
         <div className="coinData">
           <div className="coin">
-            <img src={icon} />
+            <img src={icon} alt="Icon" />
             <h1 className="coinName">{coinName}</h1>
             <p className="coinSymbol">{coinSymbol}</p>
             <p className="coinPrice">$ {price.toFixed(2)}</p>
@@ -29,7 +30,7 @@ const Coin = ({
             <p className="coinVolume">$ {marketCap.toLocaleString()}</p>
             <button
               onClick={() => {
-                history.push(`/CoinPage/${id}`);
+                navigate(`/CoinPage/${id}`);
               }}
             >
               More Info
